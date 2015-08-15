@@ -1,0 +1,13 @@
+= simple_form_for @destination, html: {multipart: true } do |f|
+	- if @destination.errors.any?
+		#errors
+		%p
+			= @destination.errors.count
+			Prevented this destination from saving
+		%ul
+			- @destination.errors.full_messages.each do |msg|
+				%li = msg
+	.panel-body
+		= f.input :title, input_html: {class: 'form-control'}
+		= f.input :description, input_html: {class: 'form-control'}
+		= f.button :submit, class: 'btn btn-primary'
