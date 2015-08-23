@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
+  
+  devise_for :users
   resources :destinations
+  resources :dorms
+  resources :libraries
+  resources :foods
+  resources :favorites
 
   root "destinations#index"
 
+  get 'map' => 'destinations#map'
+
+  get 'routes' => 'destinations#popular_routes'
 
 
 

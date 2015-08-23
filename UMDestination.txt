@@ -1,0 +1,19 @@
+Search bar
+favorites
+
+
+
+For adding new pages:
+
+rails generate controller libraries
+
+rails g model Library name:string desription:string address:string latitude:float longitude:float
+
+rake db:migrate
+
+rails g paperclip library image
+
+rake db:migrate
+
+
+

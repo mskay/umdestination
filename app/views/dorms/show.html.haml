@@ -1,0 +1,15 @@
+- @dorms.each_slice(3) do |destinations|
+	- destinations.each do |destination|
+		.col-md-4
+			.destination
+				.image_wrapper
+					= link_to 'dorms/new' do
+						= image_tag destination.image.url(:medium)
+				%h2= link_to destination.title, destination
+	
+
+
+%h1= @user_ip
+
+
+%h1= @response.body
