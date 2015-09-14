@@ -20,6 +20,7 @@ gem 'cocoon', '~> 1.2.6'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'devise', '~> 3.5.2'
+gem 'searchkick', '~> 0.9.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

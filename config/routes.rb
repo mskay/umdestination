@@ -1,11 +1,35 @@
 Rails.application.routes.draw do
   
   devise_for :users
-  resources :destinations
-  resources :dorms
-  resources :libraries
-  resources :foods
-  resources :favorites
+
+  resources :favorites do
+    collection do
+      get 'search'
+    end
+  end
+  
+  resources :destinations do
+    collection do
+      get 'search'
+    end
+  end
+  
+  resources :dorms do
+    collection do
+      get 'search'
+    end
+  end
+  resources :libraries do
+    collection do
+      get 'search'
+    end
+  end
+  resources :foods do
+    collection do
+      get 'search'
+    end
+  end
+  
 
   root "destinations#index"
 

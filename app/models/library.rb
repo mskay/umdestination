@@ -1,5 +1,7 @@
 class Library < ActiveRecord::Base
-belongs_to :user
+	searchkick
+
+	belongs_to :user
 	
 	geocoded_by :address 
 	after_validation :geocode, :if => :address_changed?
@@ -11,7 +13,7 @@ belongs_to :user
   	has_many :directions
 
   	#these are the manditory fields for the destination
-	validates :title, :description, :image, presence: true
+	validates :name, :description, :image, presence: true
 
   	
  	accepts_nested_attributes_for :directions, reject_if: proc { |attributes| attributes['step'].blank? }, allow_destroy: true

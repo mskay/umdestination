@@ -19,10 +19,8 @@
 					%br
 						%br
 							= @user_ip
-					%br
-						%br
-							Submitted by:
-							= @destination.user.email
+						Submitted by:
+						= @destination.user.email
 	.row
 		.col-md-4
 			#map
@@ -46,20 +44,16 @@
 :javascript
 	handler = Gmaps.build('Google');
 	handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-		markers = handler.addMarkers([
-			{
-				"lat": 38.983294,
-				"lng": -76.934627,
-				"picture": {
-				"url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
-				"width":  36,
-				"height": 36
-			},
-			"infowindow": "hello!"
-		}
+		var markers = handler.addMarkers([
+			{ lat: 46, lng: 3.7},
+			{ lat: 45, lng: 4},
+			{ lat: 47, lng: 3.5},
+			{ lat: 49, lng: 4},
+			{ lat: 51, lng: 3.5}
 		]);
 		handler.bounds.extendWith(markers);
 		handler.fitMapToBounds();
 	});
+
 
 	

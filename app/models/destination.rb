@@ -1,8 +1,11 @@
 class Destination < ActiveRecord::Base
+	searchkick
+	
 	belongs_to :user
 	
-	geocoded_by :address 
-	after_validation :geocode, :if => :address_changed?
+	geocoded_by :address
+	#geocoded_by :ip_address, :latitude => :latitude, :longitude => :longitude 
+	after_validation :geocode
 
 	has_attached_file :image, :styles => { :medium => "400x400#" }
   	#validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/

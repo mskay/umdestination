@@ -1,9 +1,13 @@
 .row
 	.col-md-6
 		%h1 New Favorite
-		= render 'form'
+		.pull-left
+			= form_tag search_destinations_path, method: :get, class: "navbar-form navbar-right", role: "search" do
+				= text_field_tag :search, params[:search], class: "form-control"
+				= submit_tag "Search", name: nil, class: "btn btn-default"
 	.col-md-6
 		%h1 Custom Destination
+		= render 'form'
 %br/
 
 = link_to "Back", root_path, class: "btn btn-default"

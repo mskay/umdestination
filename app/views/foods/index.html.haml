@@ -2,15 +2,20 @@
 <script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'></script>
 
 
+.row
+	.col-md-12
+		= link_to "New Restaurant", 'libraries/new', class: "btn btn-default"
 
-- @food.each_slice(3) do |foods|
-	- foods.each do |food|
-		.col-md-4
-			.destination
-				.image_wrapper
-					= link_to food do
-						= image_tag food.image.url(:medium)
-				%h2= link_to food.name, food
+%br
+.row
+	- @food.each_slice(3) do |foods|
+		- foods.each do |food|
+			.col-md-4
+				.destination
+					.image_wrapper
+						= link_to food do
+							= image_tag food.image.url(:medium)
+					%h2= link_to food.name, food
 
 .row
 	.col-md-12

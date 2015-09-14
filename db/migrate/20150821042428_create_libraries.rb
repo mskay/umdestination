@@ -2,7 +2,7 @@ class CreateLibraries < ActiveRecord::Migration
   def change
     create_table :libraries do |t|
       t.string :name
-      t.string :description
+      t.string :desription
       t.string :address
       t.float :latitude
       t.float :longitude

@@ -4,8 +4,9 @@
 
 .row
 	.col-md-12
-		%h3= link_to "Add Location to favorites", 'favorites/new', class: "btn btn-default"
+		= link_to "Add Location to favorites", 'favorites/new', class: "btn btn-default"
 %br
+
 .row
 	- @favorite.each_slice(3) do |favorites|
 		- favorites.each do |favorite|

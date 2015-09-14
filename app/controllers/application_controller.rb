@@ -17,17 +17,40 @@ class ApplicationController < ActionController::Base
 
 
   # makes an api call
-  def request_api 
-		@response = HTTParty.get('http://api.umd.io/v0/bus/routes/115')
+  def request_bus_api 
+		@response = HTTParty.get('http://api.umd.io/v0/bus/routes/115/arrivals/laplat')
 	end
 
-  def remote_ip
-    #if request.remote_ip == '127.0.0.1'
-      # Hard coded remote address
-    #  '123.45.67.89'
-    #else
-      request.remote_ip
-    #end
+  def request_building_api 
+    @response = HTTParty.get('http://api.umd.io/v0/map/buildings/251')
   end
+  
+
+
+  def remote_ip
+    if request.remote_ip == '::1'
+      # Hard coded remote address
+      '50.78.167.161'
+    else
+      request.remote_ip
+    end
+  end
+
+
+ # def location
+  #  if params[:location].blank?
+   #   if Rails.env.test? || Rails.env.development?
+    #    @location ||= Geocoder.search("50.78.167.161").first
+     # else
+      #  @location ||= request.location
+     # end
+   # else
+     # params[:location].each {|l| l = l.to_i } if params[:location].is_a? Array
+     # @location ||= Geocoder.search(params[:location]).first
+     # allowed = [:latitude, :longitude, :address, :city]
+     # puts @location.methods
+     # @location
+   # end
+ # end
 
 end

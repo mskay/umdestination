@@ -5,18 +5,32 @@ class DestinationsController < ApplicationController
 	before_action :find_destination, only: [:show, :edit, :update, :destroy]
 
 
-	def index
-    	@user_ip = request.remote_ip
-    	@response = request_api()
-		@body = JSON.parse(@response.body)
-		
+	def search
+	    if params[:search].present?
+			@destinations = Destination.search(params[:search])
+		else
+			@destinations = Destination.all
+		end
+	end
 
-		@destination = Destination.all.order("created_at DESC")
+
+	def index
+    	@user_ip = remote_ip()
+    	#@locate_ip = location().ip
+
+
+    	@building = request_building_api()
+    	@bus = request_bus_api()
+    	@response = @bus.parsed_response["predictions"]
+		@body = JSON.parse(@bus.body)
+
+
+		@destination = Destination.all.order("title ASC")
 	end
 
 	def show
 		@current_location = "9 Fraternity Row"
-		@user_ip = request.location
+		@user_ip = remote_ip()
 	end
 
 	def new

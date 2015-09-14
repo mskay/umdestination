@@ -1,13 +1,8 @@
-Search bar
-favorites
-
-
-
 For adding new pages:
 
 rails generate controller libraries
 
-rails g model Library name:string desription:string address:string latitude:float longitude:float
+rails g model Library name:string description:string address:string latitude:float longitude:float
 
 rake db:migrate
 
@@ -16,4 +11,16 @@ rails g paperclip library image
 rake db:migrate
 
 
+
+************ TO DO ****************************
+
+	- compile all the destinations into one thing so that they can all be searched through
+
+	- make it so known locations can be added to the favorites page
+
+	- make map better by putting the route and markers on 
+
+	- get users current location
+
+	- make it so users can save things like home location and favorites
 

@@ -2,13 +2,12 @@ class FoodsController < ApplicationController
 	require 'httparty'
 
 	before_action :find_food, only: [:show, :edit, :update, :destroy]
-
-
+	
 	def index
     	@user_ip = request.remote_ip
-    	@response = request_api()
-		@body = JSON.parse(@response.body)
-		
+    	@building = request_building_api()
+    	@bus = request_bus_api()
+		@body = JSON.parse(@bus.body)
 
 		@food = Food.all.order("created_at DESC")
 	end

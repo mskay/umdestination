@@ -7,16 +7,19 @@
 		.col-md-4
 			.destination
 				.image_wrapper
-					= link_to destination.title do
+					= link_to destination do
 						= image_tag destination.image.url(:medium)
 				%h2= link_to destination.title.capitalize, destination
 	
 
 
-%h1= @user_ip
+%h2= @user_ip
+%h2= @locate_ip
+%br
+%br
+%h1= @building.body
+%h2= @response
 
-
-%h1= @response.body
 
 
 

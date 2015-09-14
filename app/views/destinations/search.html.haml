@@ -1,0 +1,8 @@
+.row
+	- @destinations.each do |destination|
+		.col-md-4
+			.destination
+				.image_wrapper
+					= link_to destination.title do
+						= image_tag destination.image.url(:medium)
+				%h2= link_to destination.title.capitalize, destination

@@ -11,17 +11,32 @@
 		.container
 			.navbar-brand
 				= link_to "UMDestination", root_url
-				%small You Pick The Destintion, We Get You There
-			-#%ul.nav.nav-pills.navbar-right
-			- if user_signed_in?
-				%ul.nav.navbar-nav.navbar-right
-					%li= link_to "Manage Destintions", '/destinations/new'
-					%li= link_to "Sign Out", destroy_user_session_path, method: :delete
-			- else
-				%ul.nav.navbar-nav.navbar-right
-					%li= link_to "Sign Up", new_user_registration_path
-					%li= link_to "Sign In", new_user_session_path
+				-#%small You Pick The Destintion, We Get You There
+			%ul.nav.navbar-nav.pull-left
+				- if user_signed_in?
+					%li= link_to "Home", '/destinations'
+					%li= link_to "Favorites", '/favorites'
+				%li= link_to "Dorms", '/dorms'
+				%li= link_to "Libraries", '/libraries'
+				%li= link_to "Apartments", '/apartments'
+				-#.collapse.navbar-collapse
+				= form_tag search_destinations_path, method: :get, class: "navbar-form navbar-right", role: "search" do
+					= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Destinations"
+					= submit_tag "Search", name: nil, class: "btn btn-danger"
+			.collapse.navbar-collapse
+				-#%ul.nav.nav-pills.navbar-right
+				- if user_signed_in?
+					%ul.nav.navbar-nav.navbar-right
+						-#%li= link_to "Manage Destintions", '/destinations/new'
+						%li= link_to "Sign Out", destroy_user_session_path, method: :delete
+				- else
+					%ul.nav.navbar-nav.navbar-right
+						%li= link_to "Sign Up", new_user_registration_path
+						%li= link_to "Sign In", new_user_session_path
 	.container
+		
+
+
 		- flash.each do |name, msg|
 			= content_tag :div, msg, class: "alert"		
 		= yield

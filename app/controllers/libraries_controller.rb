@@ -3,12 +3,11 @@ class LibrariesController < ApplicationController
 
 	before_action :find_library, only: [:show, :edit, :update, :destroy]
 
-
 	def index
     	@user_ip = request.remote_ip
-    	@response = request_api()
-		@body = JSON.parse(@response.body)
-		
+    	@building = request_building_api()
+    	@bus = request_bus_api()
+		@body = JSON.parse(@bus.body)
 
 		@library = Library.all.order("created_at DESC")
 	end

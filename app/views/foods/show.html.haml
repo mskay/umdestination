@@ -8,7 +8,7 @@
 		.col-md-8
 			#destination_info
 				%h1= @food.name
-				%p.description= @food.desription 
+				%p.description= @food.description 
 				%p.description
 					= @current_location 
 					>
@@ -31,8 +31,9 @@
 	.row
 		.col-md-12
 			= link_to "Back", '/foods', class: "btn btn-default"
-			= link_to "Edit", edit_food_path, class: "btn btn-default"
-			= link_to "Delete", food_path, method: :delete, data: {confirm: "Are you sure?" }, class: "btn btn-default"
+			- if user_signed_in?
+				= link_to "Edit", edit_food_path, class: "btn btn-default"
+				= link_to "Delete", food_path, method: :delete, data: {confirm: "Are you sure?" }, class: "btn btn-default"
 
 
 

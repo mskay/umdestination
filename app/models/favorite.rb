@@ -1,4 +1,6 @@
 class Favorite < ActiveRecord::Base
+	searchkick
+	
 	belongs_to :user
 	
 	geocoded_by :address 
@@ -11,7 +13,7 @@ class Favorite < ActiveRecord::Base
   	has_many :directions
 
   	#these are the manditory fields for the destination
-	validates :title, :description, :image, presence: true
+	validates :name, :description, :image, presence: true
 
   	
  	accepts_nested_attributes_for :directions, reject_if: proc { |attributes| attributes['step'].blank? }, allow_destroy: true
