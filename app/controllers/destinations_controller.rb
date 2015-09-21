@@ -15,10 +15,10 @@ class DestinationsController < ApplicationController
 
 
 	def index
+		# Gets the users IP adress using ruby geocoder
     	@user_ip = remote_ip()
-    	#@locate_ip = location().ip
 
-
+    	# Makes calls to UMD.io api
     	@building = request_building_api()
     	@bus = request_bus_api()
     	@response = @bus.parsed_response["predictions"]
@@ -29,7 +29,6 @@ class DestinationsController < ApplicationController
 	end
 
 	def show
-		@current_location = "9 Fraternity Row"
 		@user_ip = remote_ip()
 	end
 
