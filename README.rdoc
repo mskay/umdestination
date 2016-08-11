@@ -1,5 +1,7 @@
 == README
 
-Application built with Ruby on Rails that makes api requests to umd.io to track University of Maryland bus routes to get to different locations.
+Web application built with Ruby on Rails that makes api requests to umd.io to track University of Maryland bus routes to provide real time bus locations and arrival times.
 
-Uses devise to allow users to sign in and out.
+Front end build using HTML, CSS, and Bootstrap with JavaScript used with Google Maps API.
+
+Utilizes Devise to allow users to sign in and out.
